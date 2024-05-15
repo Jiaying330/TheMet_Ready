@@ -1,0 +1,83 @@
+.filter-field-container {
+    position: relative;
+    width: 300px;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: thin 100;
+    /* z-index: 1; */
+}
+
+.filter-search-wrap {
+    position: relative;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.filter-search-wrap .drop-down-search-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1.5px solid rgb(143, 143, 143);
+    border-radius: 5px;
+    padding: 0.7em 1em;
+}
+
+.filter-search-wrap button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: white;
+    border: 1.5px solid rgb(143, 143, 143);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: auto;
+    padding-bottom: auto;
+    padding-inline: 10px;
+    cursor: pointer;
+}
+
+.drop-down input {
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.filter-field-container .drop-down {
+    border: 1.5px solid rgb(143, 143, 143);
+    background-color: white;
+    position: absolute;
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-height: 17rem;
+    overflow: auto;
+    z-index: 1;
+}
+
+.drop-down div {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap:5px;
+  }
+
+.drop-down label {
+    font-size:0.8rem;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.filter-search-wrap .drop-down-search-bar:hover,
+.filter-search-wrap button:hover {
+    border: 1.5px solid black;
+}
