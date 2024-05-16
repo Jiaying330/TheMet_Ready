@@ -1,8 +1,18 @@
-# React + Vite
+# THE MET READY 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+THE MET READY is a web application designed to enhance the experience for visitors planning to visit The Metropolitan Museum of Art (The Met). By leveraging The Met Collection API, this application allows users to explore and organize artworks before their visit, ensuring a more informed and immersive museum experience.
 
-Currently, two official plugins are available:
+## Features
+**IN PROGRESS**
+- **Keyword Search:** Filter artworks based on specific keywords.
+- **Advanced Filtering:** Further refine artwork searches by medium, time era, and other attributes such as whether the artwork is a highlighted piece or currently on display.
+- **Artwork Cart:** Users can add artworks to a personalized cart. The application automatically groups these artworks by their corresponding department and gallery to facilitate an organized visit.
+- **User-Friendly Interface:** Built using modern web technologies, the interface is clean, responsive, and intuitive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+
+- **React.js:** A JavaScript library for building user interfaces.
+- **Material-UI:** A popular React UI framework.
+- **Axios:** Promise based HTTP client for the browser and node.js.
+- **Vite:** A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- **Emotion:** A library designed for writing css styles with JavaScript.
