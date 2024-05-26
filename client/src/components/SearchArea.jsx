@@ -191,38 +191,100 @@ const departmentMap = Department.reduce((acc, department) => {
     acc[department.displayName] = department.departmentId;
     return acc;
 }, {});
-// const Department=[
-//     "The American Wing",
-//     "Ancient Near Eastern Art",
-//     "Antonio Ratti Textile Center",
-//     "Arms and Armor",
-//     "Asian Art",
-//     "Brooklyn Museum Costume Collection",
-//     "The Cloisters",
-//     "Costume Institute",
-//     "Drawings and Prints",
-//     "Egyptian Art",
-//     "European Paintings",
-//     "European Sculpture and Decorative Arts",
-//     "Greek and Roman Art",
-//     "Islamic Art",
-//     "The Libraries",
-//     "Medieval Art",
-//     "The Michael C. Rockefeller Wing",
-//     "Modern and Contemporary Art",
-//     "Musical Instruments",
-//     "Photographs",
-//     "Robert Lehman Collection"
-// ];
 
-const Era = [];
+const GeoLocation = [
+    "Africa",
+    "Asia",
+    "Austria",
+    "Bavaria",
+    "Bologna",
+    "Campeche",
+    "China",
+    "England",
+    "Europe",
+    "Flanders",
+    "France",
+    "Germany",
+    "Greece",
+    "Guatemala",
+    "India",
+    "Istanbul",
+    "Italy",
+    "Marmara",
+    "Mexico",
+    "Netherlands",
+    "New York",
+    "North and Central America",
+    "Nuremberg",
+    "Padua",
+    "Paris",
+    "Roman Empire",
+    "South Africa",
+    "Staffordshire",
+    "Tibet",
+    "Turkey",
+    "United Kingdom",
+    "United States",
+    "Venice",
+    "Vienna"
+];
+
+
+const Era = [
+    {
+        displayName: "A.D. 1900-present",
+        dateRange: [1900, new Date().getFullYear()] // Dynamically set the present year
+    },
+    {
+        displayName: "A.D. 1800-1900",
+        dateRange: [1800, 1900]
+    },
+    {
+        displayName: "A.D. 1600-1800",
+        dateRange: [1600, 1800]
+    },
+    {
+        displayName: "1000 B.C.-A.D. 1",
+        dateRange: [-1000, 1]
+    },
+    {
+        displayName: "A.D. 1400-1600",
+        dateRange: [1400, 1600]
+    },
+    {
+        displayName: "2000-1000 B.C",
+        dateRange: [-2000, -1000]
+    },
+    {
+        displayName: "A.D. 500-1000",
+        dateRange: [500, 1000]
+    },
+    {
+        displayName: "A.D. 1000-1400",
+        dateRange: [1000, 1400]
+    },
+    {
+        displayName: "A.D. 1-500",
+        dateRange: [1, 500]
+    },
+    {
+        displayName: "8000-2000 B.C.",
+        dateRange: [-8000, -2000]
+    }
+];
+const EraName = Era.map(era => era.displayName);
+const eraMap = Era.reduce((acc, era) => {
+    acc[era.displayName] = era.dateRange;
+    return acc;
+},{})
 export default function SearchArea() {
     const [query, setQuery] = useState(null);
     const [filterList, setFilterList] = useState([]);
     const [filterArea, setFilterArea] = useState(false);
     const [medium, setMedium] = useState([]);
     const [department, setDepartment] = useState([]);
-    const [era, setEra] = useState([]);
+    const [era, setEra] = useState(null);
+    const [geoLocation, setGeoLocation] = useState([]);
     const [isHighlight, setIsHighlight] = useState(false);
     const [isOnView, setIsOnView] = useState(false);
 
@@ -239,17 +301,22 @@ export default function SearchArea() {
         } 
 
         if (action) {
-            setFilterList((prevValue) => [...prevValue, item]);
+            setFilterList((prevValue) => { 
+                if (className === "Era") {
+                    let newList = prevValue.filter((value) => {
+                        return !EraName.includes(value);
+                    });
+                    return [...newList, item];
+                }
+                return [...prevValue, item]});
             if (className === "Medium") {
                 setMedium((prevValue) => [...prevValue, item]);
             } else if (className === "Department") {
                 setDepartment((prevValue) => [...prevValue, departmentMap[item]]);
             } else if (className === "Era") {
-                setEra((prevValue) => [...prevValue, item]);
-            } else if (className === "isHighlight") {
-                setIsHighlight((prevValue) => !prevValue);
-            } else if (className === "isOnView") {
-                setIsOnView((prevValue) => !prevValue);
+                setEra(eraMap[item])
+            } else if (className === "GeoLocation") {
+                setGeoLocation((prevValue) => [...prevValue, item]);
             } 
         }
         else {
@@ -270,8 +337,16 @@ export default function SearchArea() {
                         return value !== departmentMap[item];
                     });
                 })
-            } else {
-                setEra((prevValue) => {
+            } else if (className === "Era") {
+
+                setEra(null);
+                // setEra((prevValue) => {
+                    // return prevValue.filter((value) => {
+                    //     return value !== eraMap[item];
+                    // });
+                // })
+            } else if (className === "GeoLocation") {
+                setGeoLocation((prevValue) => {
                     return prevValue.filter((value) => {
                         return value !== item;
                     });
@@ -312,9 +387,10 @@ export default function SearchArea() {
                 {filterArea && (
                     <div className="filter-options-container">
                         <div className="filter-bar-container">
-                            <FilterBar title="Medium" items={Medium} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
-                            <FilterBar title="Era" items={[]} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
-                            <FilterBar title="Department" items={DepartmentName} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Medium" className = "Medium" items={Medium} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Geographic Location" className = "GeoLocation" items={GeoLocation} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Date/Era" items={EraName} className = "Era" checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Department" className = "Department" items={DepartmentName} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
                         </div>
                         <div className="show-only">
                             <h3>Show Only:</h3>
@@ -330,17 +406,16 @@ export default function SearchArea() {
                                     let className = "Medium";
                                     if (DepartmentName.includes(item)) {
                                         className = "Department";
-                                    }
-                                    else if (Era.includes(item)) {
+                                    } else if (EraName.includes(item)) {
                                         className = "Era";
+                                    } else if (GeoLocation.includes(item)) {
+                                        className = "GeoLocation"
                                     }
-
                                     editFilterList(false, item, className);
                                 }} />
                             })}
                         </div>
                     </div>
-
                 )}
 
             </div>
@@ -350,6 +425,7 @@ export default function SearchArea() {
             medium={medium} 
             department={department} 
             era={era}
+            geoLocation = {geoLocation}
             isHighlight={isHighlight}
             isOnView={isOnView}
             />

@@ -27,6 +27,12 @@ export default function ArtworkDisplay(props) {
             if (props.department.length > 0) {
                 searchUrl += '&departmentId=' + props.department.join('|');
             }
+            if (props.geoLocation.length > 0) {
+                searchUrl += '&geoLocation=' + props.geoLocation.join('|');
+            }
+            if (props.era != null) {
+                searchUrl += '&dateBegin=' + props.era[0] + '&dateEnd=' + props.era[1];
+            }
             if(props.isHighlight) {
                 searchUrl += '&isHighlight=true';
             }
@@ -35,6 +41,7 @@ export default function ArtworkDisplay(props) {
             }
 
             try {
+                console.log(searchUrl);
                 const response = await axios.get(searchUrl);
                 setIDs(response.data.objectIDs);
                 setDataLength(response.data.total);
@@ -48,7 +55,8 @@ export default function ArtworkDisplay(props) {
         };
 
         constructAndFetchURL();
-    }, [props.query, props.medium, props.department, props.era, props.isHighlight, props.isOnView]); // Ensuring useEffect runs on these prop changes
+        setCurrPage(1);
+    }, [props.query, props.medium, props.department, props.era, props.geoLocation, props.isHighlight, props.isOnView]); // Ensuring useEffect runs on these prop changes
 
     useEffect(() => {
         const fetchArtworks = async () => {
