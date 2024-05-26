@@ -8,14 +8,249 @@ import FilterBar from "./FilterBar";
 import CheckBox from "./CheckBox";
 import ArtworkDisplay from './ArtworkDisplay';
 
-const listItems = ["Silk", "Bone", "Bottles", "Bowls", "Boxes", "Arms", "Books", "Canvas", "Clay", "Chalk", "Copper", "Cups", "Dresses", "Dishes"];
+const Medium = [
+    "Albumen",
+    "Albums",
+    "Aquatint",
+    "Arms",
+    "Baseball Cards",
+    "Beads",
+    "Bone",
+    "Bowls",
+    "Brass",
+    "Bronze",
+    "Canvas",
+    "Ceramics",
+    "Chalk",
+    "Clay",
+    "Color lithographs",
+    "Copper",
+    "Copper alloy",
+    "Costume",
+    "Cotton",
+    "Cups",
+    "Dishes",
+    "Drawings",
+    "Dresses",
+    "Drinking Vessels",
+    "Earthenware",
+    "Edged weapons",
+    "Embroidery",
+    "Enamels",
+    "Engraving",
+    "Ephemera",
+    "Etching",
+    "Faience",
+    "Figures",
+    "Figurines",
+    "Film",
+    "Fragments",
+    "Furniture",
+    "Gilt",
+    "Glass",
+    "Glass plate",
+    "Glaze",
+    "Glazing",
+    "Gold",
+    "Gouache",
+    "Graphite",
+    "Illustrations",
+    "Ink",
+    "Iron",
+    "Iron alloy",
+    "Ivory",
+    "Jars",
+    "Jewelry",
+    "Kylikes",
+    "Lace",
+    "Leather",
+    "Limestone",
+    "Linen",
+    "Lithographs",
+    "Medals",
+    "Metal",
+    "Metalwork",
+    "Musical instruments",
+    "Needlework",
+    "Negatives",
+    "Paintings",
+    "Paper",
+    "Photographs",
+    "Photolithographs",
+    "Photomechanical reproductions",
+    "Planographic prints",
+    "Plastic",
+    "Plates",
+    "Porcelain",
+    "Pottery",
+    "Printing",
+    "Printing blocks",
+    "Prints",
+    "Relief prints",
+    "Reliefs",
+    "Sculpture",
+    "Silk",
+    "Silver",
+    "Statues",
+    "Steel",
+    "Stone",
+    "Swords",
+    "Terracotta",
+    "Textiles",
+    "Vases",
+    "Vessels",
+    "Watercolors",
+    "Wood",
+    "Wood blocks",
+    "Wood engravings",
+    "Woodcuts",
+    "Wool",
+    "Woven"
+];
+
+const Department = [
+    {
+      "departmentId": 1,
+      "displayName": "American Decorative Arts"
+    },
+    {
+      "departmentId": 3,
+      "displayName": "Ancient Near Eastern Art"
+    },
+    {
+      "departmentId": 4,
+      "displayName": "Arms and Armor"
+    },
+    {
+      "departmentId": 5,
+      "displayName": "Arts of Africa, Oceania, and the Americas"
+    },
+    {
+      "departmentId": 6,
+      "displayName": "Asian Art"
+    },
+    {
+      "departmentId": 7,
+      "displayName": "The Cloisters"
+    },
+    {
+      "departmentId": 8,
+      "displayName": "The Costume Institute"
+    },
+    {
+      "departmentId": 9,
+      "displayName": "Drawings and Prints"
+    },
+    {
+      "departmentId": 10,
+      "displayName": "Egyptian Art"
+    },
+    {
+      "departmentId": 11,
+      "displayName": "European Paintings"
+    },
+    {
+      "departmentId": 12,
+      "displayName": "European Sculpture and Decorative Arts"
+    },
+    {
+      "departmentId": 13,
+      "displayName": "Greek and Roman Art"
+    },
+    {
+      "departmentId": 14,
+      "displayName": "Islamic Art"
+    },
+    {
+      "departmentId": 15,
+      "displayName": "The Robert Lehman Collection"
+    },
+    {
+      "departmentId": 16,
+      "displayName": "The Libraries"
+    },
+    {
+      "departmentId": 17,
+      "displayName": "Medieval Art"
+    },
+    {
+      "departmentId": 18,
+      "displayName": "Musical Instruments"
+    },
+    {
+      "departmentId": 19,
+      "displayName": "Photographs"
+    },
+    {
+      "departmentId": 21,
+      "displayName": "Modern Art"
+    }
+  ];
+const DepartmentName = Department.map(department => department.displayName);
+const departmentMap = Department.reduce((acc, department) => {
+    acc[department.displayName] = department.departmentId;
+    return acc;
+}, {});
+// const Department=[
+//     "The American Wing",
+//     "Ancient Near Eastern Art",
+//     "Antonio Ratti Textile Center",
+//     "Arms and Armor",
+//     "Asian Art",
+//     "Brooklyn Museum Costume Collection",
+//     "The Cloisters",
+//     "Costume Institute",
+//     "Drawings and Prints",
+//     "Egyptian Art",
+//     "European Paintings",
+//     "European Sculpture and Decorative Arts",
+//     "Greek and Roman Art",
+//     "Islamic Art",
+//     "The Libraries",
+//     "Medieval Art",
+//     "The Michael C. Rockefeller Wing",
+//     "Modern and Contemporary Art",
+//     "Musical Instruments",
+//     "Photographs",
+//     "Robert Lehman Collection"
+// ];
+
+const Era = [];
 export default function SearchArea() {
+    const [query, setQuery] = useState(null);
     const [filterList, setFilterList] = useState([]);
     const [filterArea, setFilterArea] = useState(false);
+    const [medium, setMedium] = useState([]);
+    const [department, setDepartment] = useState([]);
+    const [era, setEra] = useState([]);
+    const [isHighlight, setIsHighlight] = useState(false);
+    const [isOnView, setIsOnView] = useState(false);
 
-    function editFilterList(action, item) {
+    function searchBarOnChange(event) {
+        setQuery(event.target.value);
+    }
+
+    function editFilterList(action, item, className) {
+        console.log("className = " + className);
+        if (className === "isHighlight") {
+            setIsHighlight((prevValue) => !prevValue);
+        } else if (className === "isOnView") {
+            setIsOnView((prevValue) => !prevValue);
+        } 
+
         if (action) {
-            setFilterList((prevValue) => { return [...prevValue, item] });
+            setFilterList((prevValue) => [...prevValue, item]);
+            if (className === "Medium") {
+                setMedium((prevValue) => [...prevValue, item]);
+            } else if (className === "Department") {
+                setDepartment((prevValue) => [...prevValue, departmentMap[item]]);
+            } else if (className === "Era") {
+                setEra((prevValue) => [...prevValue, item]);
+            } else if (className === "isHighlight") {
+                setIsHighlight((prevValue) => !prevValue);
+            } else if (className === "isOnView") {
+                setIsOnView((prevValue) => !prevValue);
+            } 
         }
         else {
             setFilterList((prevValue) => {
@@ -23,6 +258,25 @@ export default function SearchArea() {
                     return value !== item;
                 });
             })
+            if (className === "Medium") {
+                setMedium((prevValue) => {
+                    return prevValue.filter((value) => {
+                        return value !== item;
+                    });
+                })
+            } else if (className === "Department") {
+                setDepartment((prevValue) => {
+                    return prevValue.filter((value) => {
+                        return value !== departmentMap[item];
+                    });
+                })
+            } else {
+                setEra((prevValue) => {
+                    return prevValue.filter((value) => {
+                        return value !== item;
+                    });
+                })
+            }
         }
         console.log(filterList);
     }
@@ -32,17 +286,12 @@ export default function SearchArea() {
     }
 
     function checkboxOnClick(event) {
-        let { name, checked } = event.target;
-        editFilterList(checked, name);
+        let { name, checked, className} = event.target;
+        editFilterList(checked, name, className);
     }
 
     function checkSelected(item) {
         return filterList.includes(item);
-    }
-
-    function handleDelete(event) {
-        console.log(event);
-        // editFilterList(false, event.target.label);
     }
 
     return (
@@ -51,7 +300,7 @@ export default function SearchArea() {
                 <div className="main-search">
                     Search The Collection <br />
                     <div className="main-search search-wrap">
-                        <input className="main-search-bar" type="search" name="q" placeholder="Search all fields." />
+                        <input className="main-search-bar" type="search" name="q" placeholder="Search all fields." onChange={searchBarOnChange}/>
                         <button><SearchIcon /></button>
                     </div>
                 </div>
@@ -63,22 +312,30 @@ export default function SearchArea() {
                 {filterArea && (
                     <div className="filter-options-container">
                         <div className="filter-bar-container">
-                            <FilterBar title="Medium" items={listItems} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
-                            <FilterBar title="Date/Era" items={[]} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
-                            <FilterBar title="Department" items={[]} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Medium" items={Medium} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Era" items={[]} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
+                            <FilterBar title="Department" items={DepartmentName} checkboxOnClick={checkboxOnClick} checkSelected={checkSelected}/>
                         </div>
                         <div className="show-only">
                             <h3>Show Only:</h3>
                             <div className="show-only-container">
-                                < CheckBox name="highlights" text="Highlights" checkboxOnClick={checkboxOnClick} />
-                                < CheckBox name="onDisplay" text="Artworks On Display" checkboxOnClick={checkboxOnClick} />
+                                < CheckBox className="isHighlight" name="isHighlight" text="Highlights" checkboxOnClick={checkboxOnClick} checked={checkSelected("isHighlight")}/>
+                                < CheckBox className="isOnView" name="isOnView" text="Artworks On Display" checkboxOnClick={checkboxOnClick} checked={checkSelected("isOnView")}/>
                             </div>
                         </div>
                         
                         <div className="selected-filter-list">
                             {filterList.map((item) => {
                                 return <Chip label={item} variant="filled" onDelete={() => {
-                                    editFilterList(false, item);
+                                    let className = "Medium";
+                                    if (DepartmentName.includes(item)) {
+                                        className = "Department";
+                                    }
+                                    else if (Era.includes(item)) {
+                                        className = "Era";
+                                    }
+
+                                    editFilterList(false, item, className);
                                 }} />
                             })}
                         </div>
@@ -88,7 +345,14 @@ export default function SearchArea() {
 
             </div>
             <h3>Showing Results</h3>
-            <ArtworkDisplay />
+            <ArtworkDisplay 
+            query={query} 
+            medium={medium} 
+            department={department} 
+            era={era}
+            isHighlight={isHighlight}
+            isOnView={isOnView}
+            />
 
         </div>
     );

@@ -55,7 +55,7 @@ export default function FilterBar(props) {
             {dropdown && (<ul className="drop-down" ref={dropDownRef}>
                 {dropdownContent.map((item) => {
                     return <li>
-                        < CheckBox name={item} text={item} checkboxOnClick={props.checkboxOnClick} checked={props.checkSelected(item)}/>
+                        < CheckBox className={props.title} name={item} text={item} checkboxOnClick={props.checkboxOnClick} checked={props.checkSelected(item)}/>
                     </li>
                 })}
             </ul>)}
