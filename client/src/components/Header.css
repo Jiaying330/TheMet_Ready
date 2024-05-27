@@ -27,4 +27,10 @@
 
 .right-nav-container a {
     margin-inline: 25px;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.right-nav-container a:hover {
+    text-decoration: underline;
 }

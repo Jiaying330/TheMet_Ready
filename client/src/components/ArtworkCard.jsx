@@ -5,8 +5,7 @@ export default function ArtworkCard(props) {
     const image = props.artwork.image;
     const title = props.artwork.title;
     const artist = props.artwork.artist;
-    // console.log(props)
-    // console.log(image + " " + title + " " + artist) 
+
     return (
         <div class="artwork-card">
             <div class="image-container">

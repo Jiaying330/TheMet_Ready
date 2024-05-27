@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import "./SearchArea.css";
+import "./SearchPage.css";
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Chip from '@mui/material/Chip';
-import FilterBar from "./FilterBar";
-import CheckBox from "./CheckBox";
-import ArtworkDisplay from './ArtworkDisplay';
+import FilterBar from "../components/FilterBar";
+import CheckBox from "../components/CheckBox";
+import ArtworkDisplay from '../components/ArtworkDisplay';
 
 const Medium = [
     "Albumen",
