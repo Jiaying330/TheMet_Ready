@@ -29,3 +29,14 @@
     line-height: 2rem;
     color: rgb(187, 187, 187);
 }
+
+.cart-item-description-container > a{
+    color: rgb(221, 221, 221);
+    padding: 10px;
+    border: 0;
+    transition: all ease 0.3s;
+}
+
+.cart-item-description-container > a:hover{
+    color: rgb(172, 172, 172);
+}

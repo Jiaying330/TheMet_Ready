@@ -19,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    overflow-x: hidden;
     color:whitesmoke;
 }
 
@@ -40,7 +41,13 @@
     justify-content: space-between;
     align-items: center;
     background-color: #b60723;
-}   
+    transition: all ease 0.3s;
+} 
+
+.cart-header > a:hover {
+    color: rgb(172, 172, 172);
+}
+
 .cart-footer {
     position: fixed;
     bottom: 0;

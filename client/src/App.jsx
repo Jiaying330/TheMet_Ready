@@ -19,7 +19,6 @@ function App() {
           <Route path="/" element={< SearchArea />} />
           <Route path="/about" element={< About />} />
         </Routes>
-
         < Cart />
       </CartProvider>
 

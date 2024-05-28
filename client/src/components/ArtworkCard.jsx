@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ArtworkCard.css"
 import {useCart} from '../context/CartContext';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function ArtworkCard(props) {
     const {objectID, image, title, artist } = props.artwork;
@@ -20,7 +21,7 @@ export default function ArtworkCard(props) {
                     {artist}
                 </div>
             </div>
-            <button onClick={() => addToCart(objectID)}>Add to cart</button>
+            <button onClick={() => addToCart(objectID)}><AddIcon /></button>
         </div>
     )
 }

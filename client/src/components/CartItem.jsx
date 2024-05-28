@@ -42,7 +42,6 @@ export default function CartItem(props) {
     }
 
     return (
-
         <div className="cart-item">
             <div className="cart-item-image-container">
                 <img className="cart-item-image" src={artworkData.image} alt={artworkData.title} rel={artworkData.title}></img>
