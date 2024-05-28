@@ -13,7 +13,6 @@ export default function ArtworkDisplay(props) {
     const [artworks, setArtworks] = useState([]);
     const PER_PAGE = 16;
     const [pageCount, setPageCount] = useState(0);
-    const [url, setUrl] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 

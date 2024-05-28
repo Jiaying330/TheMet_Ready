@@ -1,6 +1,7 @@
 .filter-field-container {
     position: relative;
     width: 300px;
+    /* width: auto; */
     font-family: "Barlow Semi Condensed", sans-serif;
     font-weight: thin 100;
     /* z-index: 1; */
@@ -80,4 +81,14 @@
 .filter-search-wrap .drop-down-search-bar:hover,
 .filter-search-wrap button:hover {
     border: 1.5px solid black;
+}
+
+@media screen and (max-width:960px) {
+    .filter-field-container {
+        /* flex-direction: column; */
+        width: 100%;
+    }
+    /* .show-only-container {
+        flex-direction: column;
+    } */
 }

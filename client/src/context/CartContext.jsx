@@ -10,7 +10,6 @@ export function useCart() {
 
 export function CartProvider({ children }) {
     const [isOpen, setIsOpen] = useState(false);
-    // const [cartItems, setCartItems] = useState([]);
     const [cartItems, setCartItems] = useLocalStorage("cart", [])
     function openCart() {
         document.getElementById("myCart").style.display="flex";
