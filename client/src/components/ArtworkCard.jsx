@@ -1,24 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./ArtworkCard.css"
+import {useCart} from '../context/CartContext';
 
 export default function ArtworkCard(props) {
-    const image = props.artwork.image;
-    const title = props.artwork.title;
-    const artist = props.artwork.artist;
+    const {objectID, image, title, artist } = props.artwork;
+
+    const {addToCart} = useCart();
 
     return (
-        <div class="artwork-card">
-            <div class="image-container">
-                <img class="artwork-image" src={image} rel={title}/>
+        <div className="artwork-card">
+            <div className="image-container">
+                <img className="artwork-image" src={image} alt={title} rel={title}/>
             </div>
-            <div class="description-container">
-                <div class="description-title">
+            <div className="description-container">
+                <div className="description-title">
                     {title}
                 </div>
-                <div class="description-artist">
+                <div className="description-artist">
                     {artist}
                 </div>
             </div>
+            <button onClick={() => addToCart(objectID)}>Add to cart</button>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function ArtworkDisplay(props) {
     const [dataLength, setDataLength] = useState(0);
     const [currPage, setCurrPage] = useState(1);
     const [artworks, setArtworks] = useState([]);
-    const PER_PAGE = 40;
+    const PER_PAGE = 16;
     const [pageCount, setPageCount] = useState(0);
     const [url, setUrl] = useState("");
     const [loading, setLoading] = useState(true);
@@ -106,7 +106,7 @@ export default function ArtworkDisplay(props) {
         <div>
             <div class="artwork-display-container">
                 {artworks.map((artwork) => {
-                    return < ArtworkCard artwork={artwork} />
+                    return < ArtworkCard key={artwork.objectID} artwork={artwork} />
                 })}
             </div>
             <div class="pagination">

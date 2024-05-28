@@ -1,0 +1,31 @@
+.cart-item {
+    display:flex;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding-inline: 20px;
+}
+.cart-item-image-container {
+    height:100%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    background-color: #b60723;
+}
+.cart-item-image {
+    height:100%;
+    width: 150px;
+    object-fit: contain;
+}
+
+.cart-item-description-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.cart-item-description-artist {
+    font-size: 0.8rem;
+    line-height: 2rem;
+    color: rgb(187, 187, 187);
+}
