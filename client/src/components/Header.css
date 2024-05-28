@@ -13,26 +13,24 @@
     position: fixed;
     top: 0;
     z-index:2;
+    padding-inline: 7vw;
 }
 .title {
-    padding-left: 100px;
     font-family: "Noto Serif Display", serif;
     font-size: 1.5rem;
     line-height: 1.2rem;
     letter-spacing: -0.17rem;
 }
 .right-nav-container {
-    padding-right: 100px;
     display: flex;
     justify-content: space-between;
-    align-self: flex-end;
     font-family: "Jost", sans-serif;
     font-weight: 500;
     line-height: 0.9rem;
 }
 
 .right-nav-container a {
-    margin-inline: 25px;
+    margin-left: 2vw;
     color: inherit;
     text-decoration: inherit;
 }
