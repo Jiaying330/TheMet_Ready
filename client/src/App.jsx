@@ -8,6 +8,7 @@ import SearchArea from './pages/SearchPage';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext'
 import About from './pages/About'
+import CartDetailPage from './pages/CartDetailPage'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={< SearchArea />} />
           <Route path="/about" element={< About />} />
+          <Route path="/cart-detail" element={< CartDetailPage />} />
         </Routes>
         < Cart />
       </CartProvider>

@@ -1,21 +1,32 @@
 import React from 'react';
 import "./Header.css";
 import { NavLink } from 'react-router-dom';
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/CartContext";
+import CartItemCount from './CartItemCount';
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 
-export default function Header () {
-    const {openCart} = useCart();
+export default function Header() {
+    const { openCart, cartItems } = useCart();
     return (
         <header>
-            <div class="nav-container">
-                <div class="title">
-                    THE <br/>
+            <div className="nav-container">
+                <div className="title">
+                    THE <br />
                     MET_READY
                 </div>
-                <div class="right-nav-container">
+                <div className="right-nav-container">
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/">Search</NavLink>
-                    <NavLink onClick={openCart}>Cart</NavLink>
+                    <div className="cart">
+                        <NavLink onClick={openCart}>
+                            <div>
+                               <ShoppingBasketOutlinedIcon/> 
+                            </div>
+                            
+                            </NavLink>
+                        {cartItems.length > 0 && <CartItemCount count={cartItems.length} />}
+                    </div>
+
                     <NavLink to="/LogIn">Log in</NavLink>
                 </div>
             </div>

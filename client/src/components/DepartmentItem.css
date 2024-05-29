@@ -1,0 +1,32 @@
+.department-item-container {
+    width:25vw;
+    height: 18vw;
+    background-color: rgb(236, 236, 236);
+    position: relative;
+    transition: all ease 0.2s;
+}
+
+.department-item-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.department-item-container:hover {
+    box-shadow: 0 0 8px grey;
+}
+
+.department-item-container > a {
+    position: absolute;
+    margin-inline: auto;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    color:#f5f5f5;
+    text-shadow: 3px 3px 6px #000000;
+}
+
+/* .department-item-container > a:hover {
+    text-decoration: underline;
+} */

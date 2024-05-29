@@ -2,7 +2,9 @@ import React from 'react';
 import './Cart.css';
 import ClearIcon from '@mui/icons-material/Clear';
 import CartItem from "./CartItem";
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/CartContext";
+import { Link } from 'react-router-dom';
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 
 export default function Cart(props) {
     const { cartItems, closeCart, isOpen } = useCart();
@@ -21,9 +23,10 @@ export default function Cart(props) {
                 </div>
                 {/* } */}
                 <div className="cart-footer">
-                    <a onClick={() => {
+                <Link to="/cart-detail">View Detail</Link>
+                    {/* <a onClick={() => {
 
-                    }}>View Detail</a>
+                    }}>View Detail</a> */}
                 </div>
                 {/* </div> */}
             </div>

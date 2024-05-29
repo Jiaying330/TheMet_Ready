@@ -23,7 +23,7 @@ export default function CartItem(props) {
                         title: artwork.title,
                     });
                 }
-                console.log(artwork);
+                // console.log(artwork);
             } catch (error) {
                 console.error(`Failed to fetch artwork with ID ${props.objectID}: ${error}`);
             } finally {

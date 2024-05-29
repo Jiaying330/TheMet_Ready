@@ -1,0 +1,16 @@
+.cart-item-count-container {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(108, 108, 255);
+    color:white;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -3%;
+    left: 97%;
+}

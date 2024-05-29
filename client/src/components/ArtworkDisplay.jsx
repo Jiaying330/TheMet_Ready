@@ -71,8 +71,8 @@ export default function ArtworkDisplay(props) {
                                 objectID: artwork.objectID,
                                 isHighlight: artwork.isHighlight,
                                 image: artwork.primaryImage,
-                                imageSmall: artwork.primaryImageSmall,
-                                department: artwork.department,
+                                // imageSmall: artwork.primaryImageSmall,
+                                // department: artwork.department,
                                 artist: artwork.artistDisplayName,
                                 title: artwork.title,
                             });
@@ -103,12 +103,12 @@ export default function ArtworkDisplay(props) {
 
     return (
         <div>
-            <div class="artwork-display-container">
+            <div className="artwork-display-container">
                 {artworks.map((artwork) => {
                     return < ArtworkCard key={artwork.objectID} artwork={artwork} />
                 })}
             </div>
-            <div class="pagination">
+            <div className="pagination">
                 <Pagination count={pageCount} size="large" page={currPage} onChange={pageOnChange} />
             </div>
         </div>

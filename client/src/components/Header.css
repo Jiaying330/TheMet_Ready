@@ -24,6 +24,7 @@
 .right-nav-container {
     display: flex;
     justify-content: space-between;
+    align-items: end;
     font-family: "Jost", sans-serif;
     font-weight: 500;
     line-height: 0.9rem;
@@ -33,6 +34,15 @@
     margin-left: 2vw;
     color: inherit;
     text-decoration: inherit;
+}
+
+.right-nav-container > .cart {
+    margin-left: 2vw;
+    position: relative;
+    line-height: 0;
+}
+.right-nav-container > .cart div:hover {
+    border-bottom: 0.1rem solid;
 }
 
 .right-nav-container a:hover {
