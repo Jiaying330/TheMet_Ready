@@ -15,4 +15,3 @@ THE MET READY is a web application designed to enhance the experience for visito
 - **Material-UI:** A popular React UI framework.
 - **Axios:** Promise based HTTP client for the browser and node.js.
 - **Vite:** A build tool that aims to provide a faster and leaner development experience for modern web projects.
-- **Emotion:** A library designed for writing css styles with JavaScript.
