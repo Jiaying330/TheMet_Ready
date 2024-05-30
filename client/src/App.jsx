@@ -15,7 +15,7 @@ function App() {
         < Header />
         <Routes>
           <Route path="/" element={< SearchArea />} />
-          <Route path="/about" element={< About />} />
+          {/* <Route path="/about" element={< About />} /> */}
           <Route path="/cart-detail" element={< CartDetailPage />} />
         </Routes>
       </CartProvider>

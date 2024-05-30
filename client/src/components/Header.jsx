@@ -15,7 +15,7 @@ export default function Header() {
                     MET_READY
                 </div>
                 <div className="right-nav-container">
-                    <NavLink to="/about">About</NavLink>
+                    {/* <NavLink to="/about">About</NavLink> */}
                     <NavLink to="/">Search</NavLink>
                     <div className="cart">
                         <NavLink onClick={openCart}>
