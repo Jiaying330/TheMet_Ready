@@ -7,6 +7,7 @@ THE MET READY is a web application designed to enhance the experience for visito
 - **Keyword Search:** Filter artworks based on specific keywords.
 - **Advanced Filtering:** Further refine artwork searches by medium, time era, and other attributes such as whether the artwork is a highlighted piece or currently on display.
 - **Artwork Cart:** Users can add artworks to a personalized cart. The application automatically groups these artworks by their corresponding department and gallery to facilitate an organized visit.
+- **Department and Gallery Sorting:** Artworks are organized and displayed by department and sorted within each department by the number of artworks in each gallery.
 - **User-Friendly Interface:** Built using modern web technologies, the interface is clean, responsive, and intuitive.
 
 ## Technologies Used
