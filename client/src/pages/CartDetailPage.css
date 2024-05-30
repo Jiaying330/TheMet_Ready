@@ -1,11 +1,18 @@
 .cart-details-page-container {
-    margin-top:100px;
+    padding-top:100px;
     margin-inline: 7vw;
+    height: 100vh;
+}
+
+.cart-details-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .cart-details-page-departments {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    gap: 20px;
 }

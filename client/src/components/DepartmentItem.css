@@ -1,9 +1,10 @@
 .department-item-container {
     width:25vw;
     height: 18vw;
-    background-color: rgb(236, 236, 236);
+    background-color: rgba(241, 241, 241, 0.692);
     position: relative;
     transition: all ease 0.2s;
+    text-align: center;
 }
 
 .department-item-container img {
@@ -12,7 +13,7 @@
     object-fit: contain;
 }
 .department-item-container:hover {
-    box-shadow: 0 0 8px grey;
+    box-shadow: 0 0 10px rgb(75, 75, 75);
 }
 
 .department-item-container > a {
@@ -26,7 +27,3 @@
     color:#f5f5f5;
     text-shadow: 3px 3px 6px #000000;
 }
-
-/* .department-item-container > a:hover {
-    text-decoration: underline;
-} */

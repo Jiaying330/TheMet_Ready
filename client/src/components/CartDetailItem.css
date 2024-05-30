@@ -1,0 +1,29 @@
+.cart-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 10px;
+    border: 3px dotted #E4022B;
+    width: 100%;
+}
+
+.cart-detail-item > div {
+    position: relative;
+    width: fit-content;
+    padding: 5px;
+    padding-right: 8px;
+}
+
+.cart-detail-item-department {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color:#E4022B;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.cart-detail-item-department:hover {
+    text-decoration: underline;
+}
+

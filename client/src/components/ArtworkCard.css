@@ -2,6 +2,11 @@
     margin-left: 0px;
     width: 280px;
     flex-grow: 1;
+    color: rgb(77, 77, 77);
+}
+
+.description-title > a:hover {
+    text-decoration: underline;
 }
 
 .image-container {

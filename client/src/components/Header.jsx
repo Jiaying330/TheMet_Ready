@@ -24,10 +24,10 @@ export default function Header() {
                             </div>
                             
                             </NavLink>
-                        {cartItems.length > 0 && <CartItemCount count={cartItems.length} />}
+                        {(cartItems && cartItems.length > 0) && <CartItemCount count={cartItems.length} />}
                     </div>
 
-                    <NavLink to="/LogIn">Log in</NavLink>
+                    <NavLink to="/cart-detail">Cart Details</NavLink>
                 </div>
             </div>
         </header>

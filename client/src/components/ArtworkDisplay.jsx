@@ -52,7 +52,6 @@ export default function ArtworkDisplay(props) {
                 setLoading(false);
             }
         };
-
         constructAndFetchURL();
         setCurrPage(1);
     }, [props.query, props.medium, props.department, props.era, props.geoLocation, props.isHighlight, props.isOnView]); // Ensuring useEffect runs on these prop changes
@@ -69,8 +68,9 @@ export default function ArtworkDisplay(props) {
                         if (artwork && artwork.objectID) {
                             artworksData.push({
                                 objectID: artwork.objectID,
-                                isHighlight: artwork.isHighlight,
+                                // isHighlight: artwork.isHighlight,
                                 image: artwork.primaryImage,
+                                objectURL: artwork.objectURL,
                                 // imageSmall: artwork.primaryImageSmall,
                                 // department: artwork.department,
                                 artist: artwork.artistDisplayName,
@@ -85,7 +85,6 @@ export default function ArtworkDisplay(props) {
                 setLoading(false);
             }
         };
-
         fetchArtworks();
     }, [currPage, IDs]);
 

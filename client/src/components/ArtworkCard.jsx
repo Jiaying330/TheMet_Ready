@@ -4,7 +4,7 @@ import {useCart} from '../context/CartContext';
 import AddIcon from '@mui/icons-material/Add';
 
 export default function ArtworkCard(props) {
-    const {objectID, image, title, artist } = props.artwork;
+    const {objectID, image, title, artist, objectURL} = props.artwork;
 
     const {addToCart} = useCart();
 
@@ -15,7 +15,7 @@ export default function ArtworkCard(props) {
             </div>
             <div className="description-container">
                 <div className="description-title">
-                    {title}
+                    <a href={objectURL} target="_blank">{title}</a>
                 </div>
                 <div className="description-artist">
                     {artist}

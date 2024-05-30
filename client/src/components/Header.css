@@ -1,6 +1,3 @@
-/* header {
-    position: relative;
-} */
 .nav-container {
     background-color: #E4022B;
     color:white;
@@ -12,7 +9,7 @@
     padding-bottom: 20px;
     position: fixed;
     top: 0;
-    z-index:2;
+    z-index: 2;
     padding-inline: 7vw;
 }
 .title {

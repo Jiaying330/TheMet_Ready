@@ -279,14 +279,14 @@ const eraMap = Era.reduce((acc, era) => {
 },{})
 export default function SearchArea() {
     const [query, setQuery] = useState(null);
-    const [filterList, setFilterList] = useState([]);
+    const [filterList, setFilterList] = useState(["isOnView"]);
     const [filterArea, setFilterArea] = useState(false);
     const [medium, setMedium] = useState([]);
     const [department, setDepartment] = useState([]);
     const [era, setEra] = useState(null);
     const [geoLocation, setGeoLocation] = useState([]);
     const [isHighlight, setIsHighlight] = useState(false);
-    const [isOnView, setIsOnView] = useState(false);
+    const [isOnView, setIsOnView] = useState(true);
 
     function searchBarOnChange(event) {
         setQuery(event.target.value);
