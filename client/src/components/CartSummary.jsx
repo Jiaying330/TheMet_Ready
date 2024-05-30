@@ -9,7 +9,7 @@ export default function CartSummary(props) {
         <div className='cart-summary'>
             <span>Cart Summary</span> <br />
             {Object.entries(sortedGalleries).map(([department, galleries]) => (
-                <CartSummaryItem department={department} galleries={galleries} />
+                <CartSummaryItem key={crypto.randomUUID()} department={department} galleries={galleries} />
             ))}
         </div>
     )

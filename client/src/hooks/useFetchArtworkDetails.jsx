@@ -49,6 +49,9 @@ function useFetchArtworkDetails(cartItems) {
         if (cartItems && cartItems.length > 0) {
             fetchArtworkDetails();
         }
+        else {
+            setArtworksByDepartment([]);
+        }
     }, [cartItems]);
 
     return { artworksByDepartment, loading, error };

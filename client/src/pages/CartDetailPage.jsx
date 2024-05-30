@@ -41,7 +41,7 @@ export default function CartDetailPage() {
                         />
                     ))}
                 </div>
-                <CartSummary artworksByDepartment={artworksByDepartment} />
+                <CartSummary key={crypto.randomUUID()} artworksByDepartment={artworksByDepartment} />
             </div>
 
 
