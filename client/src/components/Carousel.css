@@ -1,16 +1,16 @@
 .carousel-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 10px;
-    top: 0;
-    color: rgba(255, 255, 255, 0.5);
-    transition: all ease 0.2s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-inline: 10px; */
+  top: 0;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all ease 0.2s;
 }
 
 .carousel-container:hover {
-    color:white;
+  color: white;
 }
